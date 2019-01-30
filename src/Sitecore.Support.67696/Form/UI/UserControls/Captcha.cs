@@ -2,6 +2,7 @@
 using Sitecore.Links;
 using Sitecore.Resources.Media;
 using System;
+using Sitecore.Configuration;
 
 namespace Sitecore.Support.Form.UI.UserControls
 {
@@ -11,7 +12,7 @@ namespace Sitecore.Support.Form.UI.UserControls
     {
       base.OnInit(e);
       //modified part of code: 
-      if (LinkManager.AlwaysIncludeServerUrl)
+      if (LinkManager.AlwaysIncludeServerUrl || Settings.Media.AlwaysIncludeServerUrl)
       {
         Item innerItem = Sitecore.Context.Database.GetItem("/sitecore/media library/web forms for marketers/icons/refresh");
         if (innerItem != null)
